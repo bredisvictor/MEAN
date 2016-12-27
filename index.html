@@ -1,0 +1,39 @@
+<!doctype html>
+<html ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MEAN</title>
+</head>
+<body ng-controller="mean">
+    <h1>M.E.A.N</h1>
+    <h2>MongoDB + EXPRESS + AngularJS + Node.js</h2>
+    <form>
+        Name<input ng-model="user.name" type="text"><br>
+        Last Name<input ng-model="user.lastName" type="text"><br>
+        Phohe Number<input ng-model="user.phone" type="text"><br>
+        <button ng-click="addUser()">Add</button>
+        <button ng-click="update()">Update</button>
+    </form>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Last Name</th>
+            <th>Phone Number</th>
+            <th>Edite</th>
+            <th>Delete</th>
+        </tr>
+        <tr ng-repeat="user in users">
+            <td>{{user.name}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.phone}}</td>
+            <td><button ng-click="edite(user._id)">Edite</button></td>
+            <td><button ng-click="deleteUser(user._id)">Delete</button></td>
+        </tr>
+    </table>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
+    <script src="angular.js"></script>
+</body>
+</html>
