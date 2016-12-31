@@ -12,7 +12,7 @@ myApp.controller('mean', function($scope, $http) {
     getUsers();
     
     $scope.addUser = function(){
-        
+            $scope.user._id = "";
         $http.post('/addContact', $scope.user).success(function(res){
             getUsers();
             $scope.user.name = "";
@@ -45,10 +45,7 @@ myApp.controller('mean', function($scope, $http) {
     $scope.update = function(){
         $http.post('/update',$scope.user).success(function(res){
             getUsers();
-            $scope.user.name = "";
-            $scope.user.lastName = "";
-            $scope.user.phone = "";
-            $scope.user._id = "";
+            $scope.user = {};
         });
     }
 });
